@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Socket</title>
+</head>
+<body>
+    <h1>Web Socket</h1>
+    <h3>CHeck the logs for the connections</h3>
+    <script>
+        const ws = new WebSocket("ws://localhost:8082");
+
+        ws.addEventListener("open",() => {
+                console.log("Connected")
+
+                ws.send("Hey what's up? How is it going")
+        })
+        ws.addEventListener("message",e => {
+                console.log("Message from serer :::" + e.data)
+
+        })
+
+       
+    </script>
+</body>
+</html>
